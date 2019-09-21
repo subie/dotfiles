@@ -1,0 +1,23 @@
+!
+! Rotate Keys left of the space bar.
+!
+remove Control = Control_L
+remove Mod4 = Super_L
+remove Mod1 = Alt_L
+keysym Control_L = Super_L
+keysym Super_L = Alt_L
+keysym Alt_L = Control_L
+add Control = Control_L
+add Mod4 = Super_L
+add Mod1 = Alt_L
+
+!
+! Rotate Keys right of the space bar.
+!
+remove Control = Control_R
+remove Mod1 = Alt_R
+keysym Control_R = Print
+keysym Print = Alt_R
+keysym Alt_R = Control_R
+add Control = Control_R
+add Mod1 = Alt_R
