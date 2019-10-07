@@ -53,6 +53,8 @@
 
 (setq inhibit-startup-message t)
 (global-linum-mode t)
+(column-number-mode t)
+(setq fill-column 80)
 
 ;; Don't split windows when opening new buffers if the window is already split.
 (setq-default split-height-threshold nil)
@@ -82,5 +84,3 @@ buffer in current window."
    "Activates `auto-revert-check-vc-info' for files under Git version control."
    (if (eq 'GIT (vc-backend buffer-file-name))
     (set (make-local-variable 'auto-revert-check-vc-info) t))))
-
-
