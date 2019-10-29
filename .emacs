@@ -35,10 +35,14 @@
          ("C-x C-f" . helm-find-files)
          ("C-x b" . helm-buffers-list)))
 
-;; This doesn't work -- it seems emacs needs to be started from a python environment.
-;; (use-package elpy
-;;   :config
-;;   (elpy-enable))
+(use-package py-yapf
+  :config
+  (add-hook 'python-mode-hook 'py-yapf-enable-on-save))
+
+(defun list-pydefs ()
+  "List python definitions in a file."
+  (interactive)
+  (list-matching-lines "^ *\\(def \\|class \\)"))
 
 (use-package org
   :config
