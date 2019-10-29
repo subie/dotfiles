@@ -99,7 +99,25 @@ buffer in current window."
 ;; Suppress 'file changed on disk' error messaged when working with git branches.
 (global-auto-revert-mode t)
 (require 'vc-git)
+
 (add-hook 'find-file-hook '(lambda ()
    "Activates `auto-revert-check-vc-info' for files under Git version control."
    (if (eq 'GIT (vc-backend buffer-file-name))
     (set (make-local-variable 'auto-revert-check-vc-info) t))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("d91ef4e714f05fff2070da7ca452980999f5361209e679ee988e3c432df24347" default)))
+ '(package-selected-packages
+   (quote
+    (lsp-ui lsp-mode py-yapf register-list jedi-direx use-package-ensure-system-package solarized-theme material-theme magit helm better-defaults))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
