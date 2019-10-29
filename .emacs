@@ -73,7 +73,7 @@
 (setq inhibit-startup-message t)
 (global-linum-mode t)
 (column-number-mode t)
-(setq fill-column 80)
+(setq-default fill-column 79)
 
 ;; Don't split windows when opening new buffers if the window is already split.
 (setq-default split-height-threshold nil)
