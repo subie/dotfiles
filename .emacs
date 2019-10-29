@@ -52,6 +52,15 @@
 
 (use-package markdown-mode)
 
+(use-package lsp-mode
+  :config (add-hook 'prog-mode-hook #'lsp))
+
+(use-package flycheck)
+
+(use-package lsp-ui)
+
+(use-package company-lsp)
+
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------
 
