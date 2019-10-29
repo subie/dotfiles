@@ -48,6 +48,8 @@
   :config
   (setq org-startup-indented t))
 
+(use-package register-list)
+
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------
 
