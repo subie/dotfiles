@@ -50,6 +50,8 @@
 
 (use-package register-list)
 
+(use-package markdown-mode)
+
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------
 
