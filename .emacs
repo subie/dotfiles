@@ -35,9 +35,11 @@
          ("C-x C-f" . helm-find-files)
          ("C-x b" . helm-buffers-list)))
 
-(use-package py-yapf
-  :config
-  (add-hook 'python-mode-hook 'py-yapf-enable-on-save))
+(setq python-python-command "python")
+
+;; (use-package py-yapf
+;;   :config
+;;   (add-hook 'python-mode-hook 'py-yapf-enable-on-save))
 
 (defun list-pydefs ()
   "List python definitions in a file."
@@ -60,6 +62,19 @@
 (use-package lsp-ui)
 
 (use-package company-lsp)
+
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
+
+(use-package hlinum
+  :config
+  (hlinum-activate))
+
+(use-package beacon
+  :config
+  (beacon-mode 1))
 
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------
@@ -114,7 +129,7 @@ buffer in current window."
     ("d91ef4e714f05fff2070da7ca452980999f5361209e679ee988e3c432df24347" default)))
  '(package-selected-packages
    (quote
-    (lsp-ui lsp-mode py-yapf register-list jedi-direx use-package-ensure-system-package solarized-theme material-theme magit helm better-defaults))))
+    (beacon editorconfig lsp-ui lsp-mode py-yapf register-list jedi-direx use-package-ensure-system-package solarized-theme material-theme magit helm better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
