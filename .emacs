@@ -33,13 +33,21 @@
 (use-package helm
   :bind (("M-x" . helm-M-x)
          ("C-x C-f" . helm-find-files)
-         ("C-x b" . helm-buffers-list)))
+         ("C-x b" . helm-buffers-list)
+         ("C-c C-j" . helm-imenu))
+  :config
+  (helm-mode 1)
+  ;; This is a tool-tip like window.
+  ;; (setq helm-always-two-windows 1)
+  (setq helm-split-window-inside-p 1))
 
-(setq python-python-command "python")
+(setq python-shell-interpreter "ipython")
+(setq python-shell-interpreter-args "--colors=Linux --profile=default --simple-prompt")
 
-;; (use-package py-yapf
-;;   :config
-;;   (add-hook 'python-mode-hook 'py-yapf-enable-on-save))
+(use-package py-yapf
+  :config
+  ;; (add-hook 'python-mode-hook 'py-yapf-enable-on-save)
+  )
 
 (defun list-pydefs ()
   "List python definitions in a file."
@@ -59,7 +67,7 @@
 
 (use-package flycheck)
 
-(use-package lsp-ui)
+;; (use-package lsp-ui)
 
 (use-package company-lsp)
 
@@ -75,6 +83,8 @@
 (use-package beacon
   :config
   (beacon-mode 1))
+
+(use-package winum)
 
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------
@@ -126,10 +136,11 @@ buffer in current window."
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("d91ef4e714f05fff2070da7ca452980999f5361209e679ee988e3c432df24347" default)))
+    ("c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "732b807b0543855541743429c9979ebfb363e27ec91e82f463c91e68c772f6e3" "d91ef4e714f05fff2070da7ca452980999f5361209e679ee988e3c432df24347" default)))
  '(package-selected-packages
    (quote
-    (beacon editorconfig lsp-ui lsp-mode py-yapf register-list jedi-direx use-package-ensure-system-package solarized-theme material-theme magit helm better-defaults))))
+    (clang-format winum beacon editorconfig lsp-mode py-yapf register-list jedi-direx use-package-ensure-system-package solarized-theme material-theme magit helm better-defaults)))
+ '(winum-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
