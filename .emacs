@@ -55,8 +55,12 @@
   (list-matching-lines "^ *\\(def \\|class \\)"))
 
 (use-package org
+  :bind (("C-c l" . org-store-link)
+         ("C-c a" . org-agenda)
+         ("C-c c" . org-capture))
   :config
-  (setq org-startup-indented t))
+  (setq org-startup-indented t)
+  (setq org-default-notes-file (concat org-directory "/notes.org")))
 
 (use-package register-list)
 
@@ -70,6 +74,8 @@
 ;; (use-package lsp-ui)
 
 (use-package company-lsp)
+
+(use-package clang-format+)
 
 (use-package editorconfig
   :ensure t
@@ -86,6 +92,12 @@
 
 (use-package winum)
 
+(use-package dired-subtree
+  :config
+  (setq dired-subtree-use-backgrounds nil)
+  (define-key dired-mode-map "i" 'dired-subtree-insert)
+  (define-key dired-mode-map ";" 'dired-subtree-remove))
+
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------
 
@@ -96,9 +108,12 @@
 (put 'upcase-region 'disabled nil)
 
 (setq inhibit-startup-message t)
-(global-linum-mode t)
+;; Save precious characters on laptop :(
+;;(global-linum-mode t)
 (column-number-mode t)
+;; This will override the fill column from editor-config.
 (setq-default fill-column 79)
+(setq-default sentence-end-double-space nil)
 
 ;; Don't split windows when opening new buffers if the window is already split.
 (setq-default split-height-threshold nil)
@@ -137,9 +152,10 @@ buffer in current window."
  '(custom-safe-themes
    (quote
     ("c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "732b807b0543855541743429c9979ebfb363e27ec91e82f463c91e68c772f6e3" "d91ef4e714f05fff2070da7ca452980999f5361209e679ee988e3c432df24347" default)))
+ '(org-agenda-files (quote ("~/Dropbox/git/backlog.org" "~/Dropbox/zet")))
  '(package-selected-packages
    (quote
-    (clang-format winum beacon editorconfig lsp-mode py-yapf register-list jedi-direx use-package-ensure-system-package solarized-theme material-theme magit helm better-defaults)))
+    (dired-subtree clang-format+ clang-format winum beacon editorconfig lsp-mode py-yapf register-list jedi-direx use-package-ensure-system-package solarized-theme material-theme magit helm better-defaults)))
  '(winum-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
