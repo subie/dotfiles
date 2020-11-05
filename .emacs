@@ -109,12 +109,6 @@
 
 (use-package cmake-mode)
 
-;; LLVM
-(setq load-path
-      (cons (expand-file-name "~/.elisp") load-path))
-(require 'llvm-mode)
-(require 'tablegen-mode)
-
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------
 
