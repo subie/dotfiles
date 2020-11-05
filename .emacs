@@ -6,7 +6,9 @@
 (require 'package)
 
 (add-to-list 'package-archives
-       '("melpa" . "http://melpa.org/packages/") t)
+             '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives
+             '("org" . "http://orgmode.org/elpa/") t)
 
 (package-initialize)
 
@@ -58,9 +60,14 @@
   :bind (("C-c l" . org-store-link)
          ("C-c a" . org-agenda)
          ("C-c c" . org-capture))
+  :ensure org-plus-contrib
   :config
   (setq org-startup-indented t)
-  (setq org-default-notes-file (concat org-directory "/notes.org")))
+  (setq org-default-notes-file (concat org-directory "/notes.org"))
+  (setq org-agenda-window-setup 'other-window)
+
+  (require 'ox-extra)
+  (ox-extras-activate '(ignore-headlines)))
 
 (use-package register-list)
 
@@ -75,7 +82,9 @@
 
 (use-package company-lsp)
 
-(use-package clang-format+)
+(use-package clang-format+
+  :config
+  (add-hook 'c-mode-common-hook #'clang-format+-mode))
 
 (use-package editorconfig
   :ensure t
@@ -97,6 +106,14 @@
   (setq dired-subtree-use-backgrounds nil)
   (define-key dired-mode-map "i" 'dired-subtree-insert)
   (define-key dired-mode-map ";" 'dired-subtree-remove))
+
+(use-package cmake-mode)
+
+;; LLVM
+(setq load-path
+      (cons (expand-file-name "~/.elisp") load-path))
+(require 'llvm-mode)
+(require 'tablegen-mode)
 
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------
@@ -155,7 +172,7 @@ buffer in current window."
  '(org-agenda-files (quote ("~/Dropbox/git/backlog.org" "~/Dropbox/zet")))
  '(package-selected-packages
    (quote
-    (dired-subtree clang-format+ clang-format winum beacon editorconfig lsp-mode py-yapf register-list jedi-direx use-package-ensure-system-package solarized-theme material-theme magit helm better-defaults)))
+    (yasnippet-snippets cmake-mode org-contrib-plus org-plus-extras dired-subtree clang-format+ clang-format winum beacon editorconfig lsp-mode py-yapf register-list jedi-direx use-package-ensure-system-package solarized-theme material-theme magit helm better-defaults)))
  '(winum-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -163,3 +180,9 @@ buffer in current window."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+
+(defun c-format-hook ()
+  (c-set-offset 'innamespace 0))
+
+(add-hook 'c-mode-common-hook 'c-format-hook)
