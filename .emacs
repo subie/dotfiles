@@ -67,7 +67,13 @@
   (setq org-agenda-window-setup 'other-window)
 
   (require 'ox-extra)
-  (ox-extras-activate '(ignore-headlines)))
+  (ox-extras-activate '(ignore-headlines))
+
+  ;; https://cpbotha.net/2019/11/02/forming-and-maintaining-habits-using-orgmode/
+  (add-to-list 'org-modules 'org-habit t)
+  (setq org-todo-keywords
+      '((sequence "TODO(t)" "|" "DONE(d)")))
+  )
 
 (use-package register-list)
 
@@ -75,6 +81,8 @@
 
 (use-package lsp-mode
   :config (add-hook 'prog-mode-hook #'lsp))
+
+(use-package lsp-treemacs)
 
 (use-package flycheck)
 
@@ -108,6 +116,12 @@
   (define-key dired-mode-map ";" 'dired-subtree-remove))
 
 (use-package cmake-mode)
+
+(use-package slime
+  :config
+  (setq inferior-lisp-program "sbcl"))
+
+(use-package treemacs)
 
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------
@@ -166,7 +180,7 @@ buffer in current window."
  '(org-agenda-files (quote ("~/Dropbox/git/backlog.org" "~/Dropbox/zet")))
  '(package-selected-packages
    (quote
-    (yasnippet-snippets cmake-mode org-contrib-plus org-plus-extras dired-subtree clang-format+ clang-format winum beacon editorconfig lsp-mode py-yapf register-list jedi-direx use-package-ensure-system-package solarized-theme material-theme magit helm better-defaults)))
+    (slime flycheck yasnippet-snippets cmake-mode org-contrib-plus org-plus-extras dired-subtree clang-format+ clang-format winum beacon editorconfig py-yapf register-list jedi-direx use-package-ensure-system-package solarized-theme material-theme magit helm better-defaults)))
  '(winum-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
