@@ -25,9 +25,7 @@
 
 (use-package solarized-theme
   :config
-  ;; When running in the terminal, use terminal colors.
-  (when (display-graphic-p)
-    (load-theme 'solarized-light t)))
+  (load-theme 'solarized-light t))
 
 (use-package magit
   :bind (("C-c g" . magit-status)))
