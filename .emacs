@@ -87,7 +87,15 @@
 
 ;; (use-package lsp-ui)
 
-(use-package company-lsp)
+;; (use-package company-lsp)
+
+(use-package projectile
+  :config
+  (projectile-mode +1)
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+
+(use-package helm-projectile)
 
 (use-package clang-format+
   :config
