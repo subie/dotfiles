@@ -39,7 +39,8 @@
   (helm-mode 1)
   ;; This is a tool-tip like window.
   ;; (setq helm-always-two-windows 1)
-  (setq helm-split-window-inside-p 1))
+  (setq helm-split-window-inside-p 1)
+  (setq helm-buffer-max-length 40))
 
 (setq python-shell-interpreter "ipython")
 (setq python-shell-interpreter-args "--colors=Linux --profile=default --simple-prompt")
