@@ -187,8 +187,8 @@ buffer in current window."
  ;; If there is more than one, they won't work right.
  )
 
-
 (defun c-format-hook ()
+  (setq c-basic-offset 4)
   (c-set-offset 'innamespace 0))
 
 (add-hook 'c-mode-common-hook 'c-format-hook)
