@@ -192,3 +192,5 @@ buffer in current window."
   (c-set-offset 'innamespace 0))
 
 (add-hook 'c-mode-common-hook 'c-format-hook)
+
+(electric-pair-mode t)
