@@ -135,7 +135,7 @@
 ;;(global-linum-mode t)
 (column-number-mode t)
 ;; This will override the fill column from editor-config.
-(setq-default fill-column 79)
+(setq-default fill-column 99)
 (setq-default sentence-end-double-space nil)
 
 ;; Don't split windows when opening new buffers if the window is already split.
