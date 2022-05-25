@@ -10,6 +10,7 @@
 (add-to-list 'package-archives
              '("org" . "http://orgmode.org/elpa/") t)
 
+(setq load-prefer-newer t)
 (package-initialize)
 
 (when (not package-archive-contents)
@@ -77,6 +78,9 @@
 (use-package register-list)
 
 (use-package markdown-mode)
+
+;; Used by lsp-mode.
+(use-package dash)
 
 (use-package lsp-mode
   :config (add-hook 'prog-mode-hook #'lsp))
@@ -185,6 +189,7 @@ buffer in current window."
    (quote
     ("c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "732b807b0543855541743429c9979ebfb363e27ec91e82f463c91e68c772f6e3" "d91ef4e714f05fff2070da7ca452980999f5361209e679ee988e3c432df24347" default)))
  '(org-agenda-files (quote ("~/Dropbox/git/backlog.org" "~/Dropbox/zet")))
+ '(lsp-clients-clangd-executable "/usr/lib/llvm-13/bin/clangd")
  '(package-selected-packages
    (quote
     (slime flycheck yasnippet-snippets cmake-mode org-contrib-plus org-plus-extras dired-subtree clang-format+ clang-format winum beacon editorconfig py-yapf register-list jedi-direx use-package-ensure-system-package solarized-theme material-theme magit helm better-defaults)))
