@@ -46,6 +46,18 @@ function swap() {
     cd ${cd_to}
 }
 
+function f_to_bf() {
+    python -c "import numpy as np; print((np.frombuffer(np.float32(${1}).tobytes(), dtype=np.uint32) >> 16)[0])"
+}
+
+function bf_to_f() {
+    python -c "import numpy as np; print(np.frombuffer((np.uint32(${1}) << 16).tobytes(), dtype=np.float32)[0])"
+}
+
 . /usr/share/doc/fzf/examples/key-bindings.zsh
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
