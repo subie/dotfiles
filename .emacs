@@ -136,6 +136,8 @@
 
 (use-package treemacs)
 
+(add-hook 'prog-mode-hook #'flyspell-prog-mode)
+
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------
 
