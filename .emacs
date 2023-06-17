@@ -75,10 +75,6 @@
       '((sequence "TODO(t)" "|" "DONE(d)")))
   )
 
-(use-package register-list)
-
-(use-package markdown-mode)
-
 (use-package eglot
   :config
   (add-hook 'c-mode-common-hook 'eglot-ensure)
@@ -130,8 +126,6 @@
 (use-package slime
   :config
   (setq inferior-lisp-program "sbcl"))
-
-(use-package treemacs)
 
 (add-hook 'prog-mode-hook #'flyspell-prog-mode)
 
