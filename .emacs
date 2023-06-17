@@ -87,16 +87,6 @@
 
 (use-package flycheck)
 
-(use-package projectile
-  :config
-  (projectile-mode +1)
-  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  ;; The default method is 'alien', which doesn't ignore ignored directories.
-  (setq projectile-indexing-method 'native))
-
-(use-package helm-projectile)
-
 (use-package clang-format+
   :config
   (add-hook 'c-mode-common-hook #'clang-format+-mode))
