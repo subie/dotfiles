@@ -79,19 +79,16 @@
 
 (use-package markdown-mode)
 
-;; Used by lsp-mode.
-(use-package dash)
+(use-package eglot
+  :config
+  (add-hook 'c-mode-common-hook 'eglot-ensure)
+  (add-to-list 'eglot-server-programs '((c-mode c++-mode) "clangd-15")))
 
-(use-package lsp-mode
-  :config (add-hook 'prog-mode-hook #'lsp))
-
-(use-package lsp-treemacs)
+(use-package company
+  :config
+  (add-hook 'after-init-hook 'global-company-mode))
 
 (use-package flycheck)
-
-;; (use-package lsp-ui)
-
-;; (use-package company-lsp)
 
 (use-package projectile
   :config
