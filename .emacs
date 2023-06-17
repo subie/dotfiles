@@ -31,17 +31,18 @@
 (use-package magit
   :bind (("C-c g" . magit-status)))
 
-(use-package helm
-  :bind (("M-x" . helm-M-x)
-         ("C-x C-f" . helm-find-files)
-         ("C-x b" . helm-buffers-list)
-         ("C-c C-j" . helm-imenu))
+(use-package vertico
   :config
-  (helm-mode 1)
-  ;; This is a tool-tip like window.
-  ;; (setq helm-always-two-windows 1)
-  (setq helm-split-window-inside-p 1)
-  (setq helm-buffer-max-length 40))
+  (vertico-mode))
+(use-package consult)
+(use-package marginalia
+  :config
+  (marginalia-mode))
+(use-package orderless
+  :custom
+  (completion-styles '(orderless)))
+(use-package embark)
+(use-package embark-consult)
 
 (setq python-shell-interpreter "ipython")
 (setq python-shell-interpreter-args "--colors=Linux --profile=default --simple-prompt")
