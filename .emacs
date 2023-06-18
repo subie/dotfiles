@@ -41,7 +41,9 @@
 (use-package orderless
   :custom
   (completion-styles '(orderless)))
-(use-package embark)
+(use-package embark
+  :bind
+  (("C-." . embark-act)))
 (use-package embark-consult)
 
 (setq python-shell-interpreter "ipython")
