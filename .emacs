@@ -98,10 +98,6 @@
   :config
   (editorconfig-mode 1))
 
-(use-package beacon
-  :config
-  (beacon-mode 1))
-
 (use-package winum)
 
 (use-package dired-subtree
