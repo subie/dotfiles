@@ -116,12 +116,14 @@
 
 (use-package wgrep)
 
+(use-package ace-window
+  :bind (("M-o" . ace-window)))
+
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------
 
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\C-x\C-o" (lambda () (interactive) (other-window -1)))
-(keymap-global-set "M-o" 'ace-window)
 
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
