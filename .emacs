@@ -43,7 +43,7 @@
   (completion-styles '(orderless)))
 (use-package embark
   :bind
-  (("C-." . embark-act)))
+  (("C-c ." . embark-act)))
 (use-package embark-consult)
 
 (setq python-shell-interpreter "ipython")
