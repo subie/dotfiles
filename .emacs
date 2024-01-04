@@ -98,10 +98,6 @@
   :config
   (editorconfig-mode 1))
 
-(use-package hlinum
-  :config
-  (hlinum-activate))
-
 (use-package beacon
   :config
   (beacon-mode 1))
