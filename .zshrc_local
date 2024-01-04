@@ -1,0 +1,12 @@
+export XDG_CONFIG_HOME=/proj6/subie
+export XDG_CACHE_HOME=/proj6/subie
+
+export PYENV_ROOT="/proj5/subie/github/pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# For powerline-config for tmux.
+PATH=$PATH:/home/subie/.local/bin
+
+pyenv shell 3.9.16
+export POWERLINE_PATH=$(pip show powerline-status | grep -o "/.*")/powerline
