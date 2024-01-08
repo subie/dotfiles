@@ -197,5 +197,3 @@ buffer in current window."
 (add-hook 'c-mode-hook 'c-format-hook)
 
 (electric-pair-mode t)
-
-(ido-mode nil)
