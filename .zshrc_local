@@ -9,4 +9,4 @@ eval "$(pyenv init -)"
 PATH=$PATH:/home/subie/.local/bin
 
 pyenv shell 3.9.16
-export POWERLINE_PATH=$(pip show powerline-status | grep -o "/.*")/powerline
+export POWERLINE_PATH=$(pip show powerline-status | grep "Location:" | grep -o "/.*")/powerline
