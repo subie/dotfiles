@@ -65,7 +65,7 @@ function cs() {
     gh api -H "Accept: application/vnd.github.text-match+json" "/search/code?q=org:lightmatter-ai+${1}" | jq -r ".items[] | .html_url, .text_matches[].fragment" | sed -e 's:\(https.*\):\n\n// \1\n:g' | batcat --theme="Solarized (light)" -l C++ --pager="less -RF -p ${1}"
 }
 
-. /usr/share/doc/fzf/examples/key-bindings.zsh
+include ~/.fzf.zsh 
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 
