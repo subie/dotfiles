@@ -39,12 +39,13 @@ export PATH=$PATH:~/bin
 
 # TODO: Maybe remove. Used to need this - solved with xterm-direct?
 #TERM=xterm-24bits
-os_name=$(uname)
-if [ "${os_name}" = "Darwin" ]; then
-  TERM=xterm-256color
-elif [ "${os_name}" = "Linux" ]; then
-  TERM=xterm-direct
-fi
+# os_name=$(uname)
+# if [ "${os_name}" = "Darwin" ]; then
+#   TERM=xterm-256color
+# elif [ "${os_name}" = "Linux" ]; then
+#   TERM=xterm-direct
+# fi
+COLORTERM=truecolor
 export EDITOR=emacs
 
 function swap() {
