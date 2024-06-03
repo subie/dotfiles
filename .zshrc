@@ -37,7 +37,6 @@ alias l='ls -CF'
 export PATH=$PATH:/usr/lib/llvm-10/bin
 export PATH=$PATH:~/bin
 
-export TERM=xterm
 export COLORTERM=truecolor
 export EDITOR=emacs
 
