@@ -37,12 +37,7 @@ alias l='ls -CF'
 export PATH=$PATH:/usr/lib/llvm-10/bin
 export PATH=$PATH:~/bin
 
-os_name=$(uname)
-if [ "${os_name}" = "Darwin" ]; then
-  TERM=xterm-256color
-elif [ "${os_name}" = "Linux" ]; then
-  TERM=xterm-direct
-fi
+TERM=xterm
 COLORTERM=truecolor
 export EDITOR=emacs
 
