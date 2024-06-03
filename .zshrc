@@ -46,7 +46,6 @@ export PATH=$PATH:~/bin
 #   TERM=xterm-direct
 # fi
 COLORTERM=truecolor
-TERM=xterm-256color
 export EDITOR=emacs
 
 function swap() {
