@@ -37,8 +37,8 @@ alias l='ls -CF'
 export PATH=$PATH:/usr/lib/llvm-10/bin
 export PATH=$PATH:~/bin
 
-TERM=xterm
-COLORTERM=truecolor
+export TERM=xterm
+export COLORTERM=truecolor
 export EDITOR=emacs
 
 function swap() {
