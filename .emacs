@@ -33,7 +33,8 @@
 
 (use-package vertico
   :config
-  (vertico-mode))
+  (vertico-mode)
+  (setq ido-mode nil))
 (use-package consult)
 (use-package marginalia
   :config
