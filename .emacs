@@ -80,7 +80,7 @@
 (use-package eglot
   :config
   (add-hook 'c-mode-common-hook 'eglot-ensure)
-  (add-to-list 'eglot-server-programs '((c-mode c++-mode) "clangd-15")))
+  (add-hook 'python-mode-hook 'eglot-ensure))
 
 (use-package company
   :config
