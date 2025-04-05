@@ -50,7 +50,7 @@
 
 (use-package py-yapf
   :config
-  ;; (add-hook 'python-mode-hook 'py-yapf-enable-on-save)
+  (add-hook 'python-mode-hook 'py-yapf-enable-on-save)
   )
 
 (defun list-pydefs ()
