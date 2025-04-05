@@ -124,9 +124,13 @@
             :rev :newest
             :branch "main")
   :config
+  ;;(set-variable 'copilot-server-executable "/home/subie/dev/minusone-msg/node_modules/.bin/copilot-language-server")
   (add-hook 'prog-mode-hook 'copilot-mode)
   (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
   (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion))
+
+(use-package copilot-chat
+  :after (request org markdown-mode))
 
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------
