@@ -24,9 +24,7 @@
 
 (use-package better-defaults)
 
-(use-package solarized-theme
-  :config
-  (load-theme 'solarized-light t))
+(load-theme 'modus-operandi t)
 
 (use-package magit
   :bind (("C-c g" . magit-status)))
