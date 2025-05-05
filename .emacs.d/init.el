@@ -142,6 +142,9 @@
   :bind (("C-c b" . consult-xref-stack-backward)
          ("C-c f" . consult-xref-stack-forward)))
 
+;; (require 'consult-xref)
+;; (setq xref-show-xrefs-function #'consult-xref)
+
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------
 
