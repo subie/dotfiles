@@ -130,6 +130,10 @@
 (use-package copilot-chat
   :after (request org markdown-mode))
 
+(use-package breadcrumb
+  :config
+  (breadcrumb-mode))
+
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------
 
