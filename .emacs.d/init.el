@@ -207,3 +207,5 @@ buffer in current window."
 
 ;; This should be loaded automatically...
 (load-file "~/.emacs.d/custom.el")
+
+(global-hl-line-mode)
