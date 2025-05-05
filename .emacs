@@ -134,6 +134,8 @@
   :config
   (breadcrumb-mode))
 
+(use-package treemacs)
+
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------
 
