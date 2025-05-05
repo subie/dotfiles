@@ -136,6 +136,12 @@
 
 (use-package treemacs)
 
+(use-package consult-xref-stack
+  :vc
+  (:url "https://github.com/brett-lempereur/consult-xref-stack" :branch "main")
+  :bind (("C-c b" . consult-xref-stack-backward)
+         ("C-c f" . consult-xref-stack-forward)))
+
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------
 
@@ -195,3 +201,6 @@ buffer in current window."
 
 (electric-pair-mode t)
 ;;(global-display-line-numbers-mode t)
+
+;; This should be loaded automatically...
+(load-file "~/.emacs.d/custom.el")
