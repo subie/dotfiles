@@ -134,7 +134,9 @@
   :config
   (breadcrumb-mode))
 
-(use-package treemacs)
+(use-package treemacs
+  :config
+  (setq treemacs-persist-file nil))
 
 (use-package consult-xref-stack
   :vc
