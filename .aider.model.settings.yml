@@ -1,0 +1,5 @@
+- name: openai/claude-3.5-sonnet
+  extra_params:
+    extra_headers:
+      Editor-Version: vscode/1.85.0
+      Copilot-Integration-Id: vscode-chat
