@@ -1,0 +1,3 @@
+#!/bin/bash
+
+emacsclient -s scratch -t --alternate-editor="emacs --daemon=scratch" $@

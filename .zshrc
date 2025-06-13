@@ -37,7 +37,6 @@ alias la='ls -A'
 alias l='ls -CF'
 
 export COLORTERM=truecolor
-alias ec='emacsclient -s scratch -t --alternate-editor="emacs --daemon=scratch"'
 export EDITOR=ec
 
 function swap() {
