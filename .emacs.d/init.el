@@ -222,3 +222,14 @@ buffer in current window."
                         :models '(gpt-4o)))
   (gptel-make-gemini "gemini" :key (getenv "GEMINI_API_KEY") :stream t)
   (gptel-make-openai "openai" :key (getenv "CHATGPT_API_KEY") :stream t))
+
+(use-package clipetty
+  :ensure t
+  :hook (after-init . global-clipetty-mode))
+
+(xterm-mouse-mode)
+
+(use-package indent-bars
+  :hook ((prog-mode yaml-mode) . indent-bars-mode))
+
+(setq indent-bars-color '(highlight :face-bg t :blend 0.125))
