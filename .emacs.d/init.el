@@ -233,3 +233,4 @@ buffer in current window."
   :hook ((prog-mode yaml-mode) . indent-bars-mode))
 
 (setq indent-bars-color '(highlight :face-bg t :blend 0.125))
+(setq indent-bars-display-on-blank-lines nil)
