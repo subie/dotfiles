@@ -77,3 +77,5 @@ bindkey '^x^e' edit-command-line
 if [ -z "$TMUX" ]; then
     tmux set-environment SSH_TTY $(tty)
 fi
+
+export PATH="$HOME/.local/bin:$PATH"
