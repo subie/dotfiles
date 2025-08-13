@@ -75,7 +75,7 @@ bindkey '^x^e' edit-command-line
 # Emacs clippety uses this variable. Across SSH reconnects the value can become stale or may be unset.
 # See the full global environment with `tmux show-environment -g`.
 if [ -z "$TMUX" ]; then
-    tmux set-environment SSH_TTY $(tty)
+    tmux set-environment -g SSH_TTY $(tty)
 fi
 
 export PATH="$HOME/.local/bin:$PATH"

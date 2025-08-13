@@ -225,7 +225,9 @@ buffer in current window."
 
 (use-package clipetty
   :ensure t
-  :hook (after-init . global-clipetty-mode))
+  :hook (after-init . global-clipetty-mode)
+  :config
+  (setq clipetty-tmux-ssh-tty "tmux show-environment -g SSH_TTY"))
 
 (xterm-mouse-mode)
 
