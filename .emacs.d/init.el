@@ -80,7 +80,8 @@
 (use-package eglot
   :config
   (add-hook 'c-mode-common-hook 'eglot-ensure)
-  (add-hook 'python-mode-hook 'eglot-ensure))
+  (add-hook 'python-mode-hook 'eglot-ensure)
+  (add-hook 'csharp-mode-hook 'eglot-ensure))
 
 (use-package company
   :config

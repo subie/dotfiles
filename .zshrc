@@ -77,3 +77,8 @@ set_tty() {
 }
 
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:/home/subiepatel/.dotnet/tools"
+
+function sum() {
+    awk '{sum+=$1} END {print sum}'
+}
