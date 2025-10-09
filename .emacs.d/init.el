@@ -151,7 +151,6 @@
 ;; --------------------------------------
 
 (global-set-key "\M-g" 'goto-line)
-(global-set-key "\C-x\C-o" (lambda () (interactive) (other-window -1)))
 
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
@@ -236,3 +235,24 @@ buffer in current window."
 
 (setq indent-bars-color '(highlight :face-bg t :blend 0.125))
 (setq indent-bars-display-on-blank-lines nil)
+
+
+(defun close-wide-windows ()
+  "Close all windows that appear visually wider than tall in terminal."
+  (interactive)
+  (dolist (window (window-list))
+    (let ((width (window-width window))
+          (height (window-height window)))
+      ;; Character cells are ~2x taller than wide in terminals
+      ;; So visually wide means width > 2 * height
+      (when (> width (* 2 height))
+        (unless (one-window-p t)
+          (delete-window window))))))
+
+(defun switch-to-last-window ()
+  (interactive)
+  (let ((win (get-mru-window t t t)))
+    (unless win (error "Last window not found"))
+    (select-window win)))
+
+(global-set-key (kbd "C-x C-o") 'switch-to-last-window)
