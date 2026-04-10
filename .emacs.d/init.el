@@ -7,8 +7,6 @@
 
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
-(add-to-list 'package-archives
-             '("org" . "http://orgmode.org/elpa/") t)
 
 (setq load-prefer-newer t)
 (package-initialize)
@@ -62,20 +60,21 @@
   :bind (("C-c l" . org-store-link)
          ("C-c a" . org-agenda)
          ("C-c c" . org-capture))
-  :ensure org-plus-contrib
   :config
   (setq org-startup-indented t)
   (setq org-default-notes-file (concat org-directory "/notes.org"))
   (setq org-agenda-window-setup 'other-window)
-
-  (require 'ox-extra)
-  (ox-extras-activate '(ignore-headlines))
 
   ;; https://cpbotha.net/2019/11/02/forming-and-maintaining-habits-using-orgmode/
   (add-to-list 'org-modules 'org-habit t)
   (setq org-todo-keywords
       '((sequence "TODO(t)" "|" "DONE(d)")))
   )
+
+(use-package org-contrib
+  :config
+  (require 'ox-extra)
+  (ox-extras-activate '(ignore-headlines)))
 
 (use-package eglot
   :config
