@@ -1,4 +1,6 @@
 [include]
+    path = ~/.gitconfig-work
+[include]
     path = ~/.gitconfig-local
 
 # https://blog.gitbutler.com/how-git-core-devs-configure-git

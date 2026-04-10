@@ -213,12 +213,6 @@ buffer in current window."
 
 (use-package gptel
   :config
-  (setq gptel-backend (gptel-make-azure "azure-m1"
-                        :host "minusone-corp-eastus2.openai.azure.com"
-                        :endpoint "/openai/deployments/gpt-4o/chat/completions?api-version=2024-12-01-preview"
-                        :stream t
-                        :key (getenv "AZURE_MINUSONE_API_KEY")
-                        :models '(gpt-4o)))
   (gptel-make-gemini "gemini" :key (getenv "GEMINI_API_KEY") :stream t)
   (gptel-make-openai "openai" :key (getenv "CHATGPT_API_KEY") :stream t))
 
@@ -256,3 +250,6 @@ buffer in current window."
     (select-window win)))
 
 (global-set-key (kbd "C-x C-o") 'switch-to-last-window)
+
+(load "~/.emacs.d/init-work.el" t)
+(load "~/.emacs.d/init-local.el" t)

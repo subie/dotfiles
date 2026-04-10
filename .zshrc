@@ -2,10 +2,8 @@ include () {
     [[ -f "$1" ]] && source "$1"
 }
 
-# Machine specific configuration.
-if [[ -f ~/.zshrc_local ]]; then
-  source ~/.zshrc_local
-fi
+include ~/.zshrc_work
+include ~/.zshrc_local
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -60,10 +58,6 @@ function bf_to_f() {
     python -c "import numpy as np; print(np.frombuffer((np.uint32(${1}) << 16).tobytes(), dtype=np.float32)[0])"
 }
 
-function cs() {
-    gh api -H "Accept: application/vnd.github.text-match+json" "/search/code?q=org:lightmatter-ai+${1}" | jq -r ".items[] | .html_url, .text_matches[].fragment" | sed -e 's:\(https.*\):\n\n// \1\n:g' | batcat --theme="Solarized (light)" -l C++ --pager="less -RF -p ${1}"
-}
-
 include ~/.fzf.zsh 
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
@@ -77,7 +71,6 @@ set_tty() {
 }
 
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:/home/subiepatel/.dotnet/tools"
 
 function sum() {
     awk '{sum+=$1} END {print sum}'
